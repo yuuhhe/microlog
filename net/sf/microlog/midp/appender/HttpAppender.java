@@ -33,6 +33,9 @@ import net.sf.microlog.core.appender.AbstractHttpAppender;
  */
 public class HttpAppender extends AbstractHttpAppender {
 
+	public static final String APPENDER_PROPERTY = "postURL";
+	private static final String[] PROPERTY_NAMES = { APPENDER_PROPERTY };
+
 	private HttpConnection connection;
 
 	/**
@@ -95,14 +98,16 @@ public class HttpAppender extends AbstractHttpAppender {
 	 * @see Appender#getPropertyNames()
 	 */
 	public String[] getPropertyNames() {
-		return null;
+		return PROPERTY_NAMES;
 	}
 
 	/**
 	 * @see Appender#setProperty(String, String)
 	 */
 	public void setProperty(String name, String value) {
-		// Ignore since we have no properties to set.
+		if (name.equals(APPENDER_PROPERTY)) {
+			this.setPostURL(value);
+		}
 	}
 
 }

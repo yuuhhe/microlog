@@ -47,8 +47,7 @@ public class DateFormatCommand implements FormatCommandInterface {
 	final static String[] MONTH_ARRAY = { "JAN", "FEB", "MAR", "APR",
 			"MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC" };
 
-	private static Calendar calendar = Calendar.getInstance(TimeZone
-			.getTimeZone("GMT"));
+	private static Calendar calendar = Calendar.getInstance();
 
 	int format = ABSOLUTE_FORMAT;
 
